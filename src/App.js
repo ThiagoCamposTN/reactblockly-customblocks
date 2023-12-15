@@ -2,7 +2,7 @@ import "./App.css";
 import "./customBlocks/custom_Blocks";
 import React, { useState } from "react";
 import { BlocklyWorkspace } from "react-blockly";
-import Blockly from "blockly";
+import { pythonGenerator } from 'blockly/python';
 
 export default function App() {
   const [xml, setXml] = useState("");
@@ -61,7 +61,7 @@ export default function App() {
     ],
   };
   function workspaceDidChange(workspace) {
-    const code = Blockly.JavaScript.workspaceToCode(workspace);
+    const code = pythonGenerator.workspaceToCode(workspace);
     setJavascriptCode(code);
   }
 
